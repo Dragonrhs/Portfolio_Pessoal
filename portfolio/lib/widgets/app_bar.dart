@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PortfolioAppBar extends StatelessWidget {
-  const PortfolioAppBar({Key? key}) : super(key: key);
+  final Function(String) onSectionPressed;
+
+  const PortfolioAppBar({Key? key, required this.onSectionPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,23 +11,24 @@ class PortfolioAppBar extends StatelessWidget {
       backgroundColor: Colors.black,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        
         children: [
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () => onSectionPressed('Competências'),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
             child: const Text('Competências'),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () => onSectionPressed('Formação'),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
             child: const Text('Formação'),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () => onSectionPressed('Links'),
             style: ElevatedButton.styleFrom(
               backgroundColor:  Colors.white
             ),
