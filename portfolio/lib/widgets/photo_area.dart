@@ -7,14 +7,14 @@ class PhotoArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
-      height: 200,
+      height: 300,
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.grey,
+        image: DecorationImage(
+          image: AssetImage('assets/images/Ryuske.jpg'),
+        ),
       ),
-      
-       child: Image.network('https://media.licdn.com/dms/image/D4D35AQGgWuJRYbN_tw/profile-framedphoto-shrink_400_400/0/1710511194712?e=1716091200&v=beta&t=sd5ZPD8KGrkZamo0_1nBGTYL2OmN62mvK2PK62v9NMQ', fit: BoxFit.cover,)
-       ,
+
     );
   }
 }
