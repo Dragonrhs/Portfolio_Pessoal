@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class App_Bar_Web extends StatelessWidget {
+class App_Bar_Mobile extends StatelessWidget {
   final Function(String) onSectionPressed;
 
-  const App_Bar_Web({Key? key, required this.onSectionPressed}) : super(key: key);
+  const App_Bar_Mobile({Key? key, required this.onSectionPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

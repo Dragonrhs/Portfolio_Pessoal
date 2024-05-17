@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/widgets/app_bar/app_bar_Mobile.dart';
 import 'package:portfolio/widgets/app_bar/app_bar_Web.dart';
 import 'package:portfolio/widgets/photo_area/photo_area_Web.dart';
 import 'package:portfolio/widgets/section_card/section_card.dart';
+import 'package:portfolio/breakpoints.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,8 +12,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  final ScrollController _scrollController = ScrollController();
+ final ScrollController _scrollController = ScrollController();
 
   void _scrollToSection(String sectionName) {
    
@@ -25,17 +26,28 @@ class _HomeScreenState extends State<HomeScreen> {
       curve: Curves.easeInOut,
     );
   }
-
-
-
+class _HomeScreenState extends State<HomeScreen> {
+ 
   @override
   Widget build(BuildContext context) {
-    
+    return LayoutBuilder(builder: (context, constraints) {
     return  Scaffold(
-      appBar:  PreferredSize(
-        preferredSize: const Size.fromHeight(80),
-        child: PortfolioAppBar(onSectionPressed: _scrollToSection),
-      ),
+      appBar: constraints.maxWidth > breakpointMobile
+            ? const PreferredSize(
+                preferredSize: Size.fromHeight(80),
+                child: App_Bar_Web(onSectionPressed: _scrollToSection),
+              )
+            : const PreferredSize(
+                preferredSize:  Size.fromHeight(56),
+                child: App_Bar_Mobile(onSectionPressed: _scrollToSection),
+              ),
+      
+
+      
+      // PreferredSize(
+      //   preferredSize: const Size.fromHeight(80),
+      //   child: PortfolioAppBar(onSectionPressed: _scrollToSection),
+      // ),
       
       body: SingleChildScrollView(
         controller: _scrollController,
@@ -61,5 +73,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  });
   }
 }
