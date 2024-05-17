@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/app_bar.dart';
-import 'package:portfolio/widgets/photo_area.dart';
-import 'package:portfolio/widgets/section_card.dart';
+import 'package:portfolio/widgets/app_bar/app_bar_Web.dart';
+import 'package:portfolio/widgets/photo_area/photo_area_Web.dart';
+import 'package:portfolio/widgets/section_card/section_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 50),
               SectionCard(title: 'Competências', key: GlobalKey(debugLabel: 'Competências')),
-              const Text("data", style: TextStyle(fontSize: 16) ),
+              const Text("teste", style: TextStyle(fontSize: 16) ),
               const SizedBox(height: 500),
               SectionCard(title: 'Formação', key: GlobalKey(debugLabel: 'Formação')),
               SectionCard(title: 'Links', key: GlobalKey(debugLabel: 'Links')),
