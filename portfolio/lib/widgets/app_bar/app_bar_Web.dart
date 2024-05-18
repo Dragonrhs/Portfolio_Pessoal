@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import '/screens/home_screen.dart';
 
 class App_Bar_Web extends StatelessWidget {
-  final Function(String) onSectionPressed;
+  
 
-  const App_Bar_Web({Key? key, required this.onSectionPressed}) : super(key: key);
+  const App_Bar_Web({Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,21 +15,21 @@ class App_Bar_Web extends StatelessWidget {
         
         children: [
           ElevatedButton(
-            onPressed: () => onSectionPressed('Competências'),
+            onPressed: () {/*scrollToCompetencias();*/},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
             child: const Text('Competências'),
           ),
           ElevatedButton(
-            onPressed: () => onSectionPressed('Formação'),
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
             child: const Text('Formação'),
           ),
           ElevatedButton(
-            onPressed: () => onSectionPressed('Links'),
+            onPressed: () {homeScreenStateKey.currentState?.scrollToLinks();},
             style: ElevatedButton.styleFrom(
               backgroundColor:  Colors.white
             ),

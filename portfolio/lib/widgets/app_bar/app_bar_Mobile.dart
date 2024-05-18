@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class App_Bar_Mobile extends StatelessWidget {
-  final Function(String) onSectionPressed;
+class App_Bar_Mobile extends StatelessWidget{
+  
 
-  const App_Bar_Mobile({Key? key, required this.onSectionPressed}) : super(key: key);
+  const App_Bar_Mobile({Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,21 +14,21 @@ class App_Bar_Mobile extends StatelessWidget {
         
         children: [
           ElevatedButton(
-            onPressed: () => onSectionPressed('Competências'),
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
             child: const Text('Competências'),
           ),
           ElevatedButton(
-            onPressed: () => onSectionPressed('Formação'),
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
             child: const Text('Formação'),
           ),
           ElevatedButton(
-            onPressed: () => onSectionPressed('Links'),
+            onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor:  Colors.white
             ),
