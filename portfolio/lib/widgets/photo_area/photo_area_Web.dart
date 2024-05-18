@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PhotoArea extends StatelessWidget {
-  const PhotoArea({Key? key}) : super(key: key);
+class PhotoArea_Web extends StatelessWidget {
+  const PhotoArea_Web({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

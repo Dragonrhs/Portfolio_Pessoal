@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/widgets/app_bar/app_bar_Mobile.dart';
 import 'package:portfolio/widgets/app_bar/app_bar_Web.dart';
 import 'package:portfolio/widgets/photo_area/photo_area_Web.dart';
+import 'package:portfolio/widgets/photo_area/photo_area_Mobile.dart';
 import 'package:portfolio/widgets/section_card/section_card.dart';
 import 'package:portfolio/breakpoints.dart';
 
@@ -52,21 +53,23 @@ class HomeScreen extends StatefulWidget {
                 preferredSize:  Size.fromHeight(56),
                 child: App_Bar_Mobile(),
               ),
-      body: const SingleChildScrollView(
+      body:  SingleChildScrollView(
         child:  Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
-               SizedBox(height: 50),
-               PhotoArea(),
-               SizedBox(height: 30),
-               Text(
+            children: 
+             [ constraints.maxWidth > breakpointMobile
+                ? const PhotoArea_Web()
+                : const PhotoArea_Mobile(),
+              const SizedBox(height: 30),
+              
+              const Text(
                 'Ryuske Hideaki Sato',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
                SizedBox(height: 50),
               SectionCard(title: 'Competências'),
-              Text("teste", style: TextStyle(fontSize: 16) ),
+              Text("-teste", style: TextStyle(fontSize: 16) ),
               SizedBox(height: 500),
               SectionCard(title: 'Formação'),
               SectionCard(title: 'Links'),
