@@ -1,0 +1,3 @@
+how to declareted instance varable cosntructor in dart
+
+https://dart.dev/language/constructors#:~:text=To%20simplify%20the%20common%20pattern,name%20conflict%20exists%2C%20use%20this%20.

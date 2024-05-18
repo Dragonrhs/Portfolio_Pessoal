@@ -47,7 +47,7 @@ class HomeScreen extends StatefulWidget {
       appBar: constraints.maxWidth > breakpointMobile
             ? const PreferredSize(
                 preferredSize: Size.fromHeight(80),
-                child: App_Bar_Web(),
+                child: App_Bar_Web(home:this),
               )
             : const PreferredSize(
                 preferredSize:  Size.fromHeight(56),
