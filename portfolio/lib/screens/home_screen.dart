@@ -101,8 +101,8 @@ class HomeScreen extends StatefulWidget {
                     icon: const FaIcon(FontAwesomeIcons.linkedin),
                     onPressed: () async {
                       const url = 'https://www.linkedin.com/in/ryuske-hideaki-sato-7b1b3b1b4/';
-                      if(await canLaunch(url)) {
-                        await launch(url);
+                      if(await canLaunchUrl(Uri.parse(url))) {
+                        await launchUrl(Uri.parse(url));
                       } else {
                         throw 'Could not launch $url';
                       }
@@ -110,8 +110,13 @@ class HomeScreen extends StatefulWidget {
                   ),
                   IconButton(
                     icon: const FaIcon(FontAwesomeIcons.github),
-                    onPressed: () {
-                      launch('https://github.com/Dragonrhs');
+                    onPressed: () async {
+                      const url = 'https://github.com/Dragonrhs';
+                      if(await canLaunchUrl(Uri.parse(url))) {
+                        await launchUrl(Uri.parse(url));
+                      } else {
+                        throw 'Could not launch $url';
+                      }
                     },
                   ),             
             ],
