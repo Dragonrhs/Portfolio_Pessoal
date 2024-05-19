@@ -12,28 +12,27 @@ import 'package:flutter/material.dart';
       backgroundColor: Colors.black,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        
         children: [
           ElevatedButton(
             onPressed: () {scrollToCompetencias();},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
-            child: const Text('Competências'),
+            child: const Text('Competências', style: TextStyle(color: Colors.black)),
           ),
           ElevatedButton(
             onPressed: () {scrollToFormacao();},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
-            child: const Text('Formação'),
+            child: const Text('Formação', style: TextStyle(color: Colors.black)),
           ),
           ElevatedButton(
             onPressed: () {scrollToLinks();},
             style: ElevatedButton.styleFrom(
               backgroundColor:  Colors.white
             ),
-            child: const Text('Links'),
+            child: const Text('Links', style: TextStyle(color: Colors.black)),
           ),
         ],
       ),
