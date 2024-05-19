@@ -100,7 +100,7 @@ class HomeScreen extends StatefulWidget {
                   IconButton(
                     icon: const FaIcon(FontAwesomeIcons.linkedin),
                     onPressed: () async {
-                      const url = 'https://www.linkedin.com/in/ryuske-hideaki-sato-7b1b3b1b4/';
+                      const url = 'https://www.linkedin.com/in/ryuske-hideaki-sato/';
                       if(await canLaunchUrl(Uri.parse(url))) {
                         await launchUrl(Uri.parse(url));
                       } else {
