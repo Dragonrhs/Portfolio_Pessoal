@@ -5,6 +5,8 @@ import 'package:portfolio/widgets/photo_area/photo_area_Web.dart';
 import 'package:portfolio/widgets/photo_area/photo_area_Mobile.dart';
 import 'package:portfolio/widgets/section_card/section_card.dart';
 import 'package:portfolio/breakpoints.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -87,11 +89,37 @@ class HomeScreen extends StatefulWidget {
               const SizedBox(height: 30),
               
                SectionCard(key: formacaoKey,title: 'Formação'),
+              const SizedBox(height: 30),
+              const Text("- Ensino superior em andamento", style: TextStyle(fontSize: 16) ),
+              const SizedBox(height: 30),
                SectionCard(key: linksKey,title: 'Links'),
+              const SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const FaIcon(FontAwesomeIcons.linkedin),
+                    onPressed: () async {
+                      const url = 'https://www.linkedin.com/in/ryuske-hideaki-sato-7b1b3b1b4/';
+                      if(await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                  ),
+                  IconButton(
+                    icon: const FaIcon(FontAwesomeIcons.github),
+                    onPressed: () {
+                      launch('https://github.com/Dragonrhs');
+                    },
+                  ),             
             ],
           ),
+        ],
         ),
       ),
+    ),
     );
   });
   }
