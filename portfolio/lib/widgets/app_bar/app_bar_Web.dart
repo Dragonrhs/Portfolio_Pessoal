@@ -1,10 +1,14 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import '/screens/home_screen.dart';
 
-abstract class App_Bar_Web extends StatelessWidget {
-  
+ class App_Bar_Web extends StatelessWidget {
+  final VoidCallback scrollToLinks;
+  final VoidCallback scrollToFormacao;
+  final VoidCallback scrollToCompetencias;
 
-  const App_Bar_Web({Key? key,HomeScreenState? home}): super(key: key) ;
+   App_Bar_Web({required this.scrollToLinks, required this.scrollToCompetencias, required this.scrollToFormacao}): super() ;
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +19,21 @@ abstract class App_Bar_Web extends StatelessWidget {
         
         children: [
           ElevatedButton(
-            onPressed: () {home.scrollToCompetencias();},
+            onPressed: () {scrollToCompetencias();},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
             child: const Text('Competências'),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {scrollToFormacao();},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
             ),
             child: const Text('Formação'),
           ),
           ElevatedButton(
-            onPressed: () {this.home.scrollToLinks();},
+            onPressed: () {scrollToLinks();},
             style: ElevatedButton.styleFrom(
               backgroundColor:  Colors.white
             ),

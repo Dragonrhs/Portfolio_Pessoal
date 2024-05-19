@@ -8,14 +8,14 @@ import 'package:portfolio/breakpoints.dart';
 
 class HomeScreen extends StatefulWidget {
 
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => HomeScreenState();
 }
 
    class HomeScreenState extends State<HomeScreen> {
-       
+   
     final competenciasKey = GlobalKey();
 
     final formacaoKey = GlobalKey();
@@ -29,13 +29,13 @@ class HomeScreen extends StatefulWidget {
     }
 
     void scrollToFormacao() async {
-      final context = competenciasKey.currentContext;
+      final context = formacaoKey.currentContext;
     await Scrollable.ensureVisible(context!,
         duration: const Duration(milliseconds: 1500));
     }
 
     void scrollToLinks() async {
-      final context = competenciasKey.currentContext;
+      final context = linksKey.currentContext;
     await Scrollable.ensureVisible(context!,
         duration: const Duration(milliseconds: 1500));
     }
@@ -45,9 +45,9 @@ class HomeScreen extends StatefulWidget {
     return LayoutBuilder(builder: (context, constraints) {
     return  Scaffold(
       appBar: constraints.maxWidth > breakpointMobile
-            ? const PreferredSize(
-                preferredSize: Size.fromHeight(80),
-                child: App_Bar_Web(home:this),
+            ?  PreferredSize(
+                preferredSize: const Size.fromHeight(80),
+                child: App_Bar_Web(scrollToLinks: scrollToLinks, scrollToFormacao: scrollToFormacao, scrollToCompetencias: scrollToCompetencias),
               )
             : const PreferredSize(
                 preferredSize:  Size.fromHeight(56),
@@ -68,7 +68,7 @@ class HomeScreen extends StatefulWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 50),
-              const SectionCard(title: 'Competências'),
+              SectionCard(key: competenciasKey, title: 'Competências'),
 
               const SizedBox(height: 30),
               const Text("- Pacote Office avançado", style: TextStyle(fontSize: 16) ),
@@ -86,8 +86,8 @@ class HomeScreen extends StatefulWidget {
               const Text("- AWS básico", style: TextStyle(fontSize: 16) ),
               const SizedBox(height: 30),
               
-              const SectionCard(title: 'Formação'),
-              const SectionCard(title: 'Links'),
+               SectionCard(key: formacaoKey,title: 'Formação'),
+               SectionCard(key: linksKey,title: 'Links'),
             ],
           ),
         ),
@@ -96,6 +96,3 @@ class HomeScreen extends StatefulWidget {
   });
   }
   }
-
-  final homeScreenStateKey = GlobalKey<HomeScreenState>();
-HomeScreen homeScreen = HomeScreen(key: homeScreenStateKey);
